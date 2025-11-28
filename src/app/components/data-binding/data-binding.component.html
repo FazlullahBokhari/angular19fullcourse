@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-6 bg-success">
+        <h3>One way</h3>
+        <div class="row">
+            <div class="col-6 bg-warning p-3">
+                from .ts to .html
+                <br> ==> interpolation & property binding
+                <div class="row">
+                    <div class="col-3">
+                        Course Name: {{courseName}} -- interpolation
+                    </div>
+                </div>
+                <div>
+                    <input type="text" [value]="courseName" /> -- property binding
+                </div>
+            </div>
+            <div class="col-6 bg-secondary p-3">
+                from .html to .ts
+                <div>
+                    ==> event binding
+                    <div class="col-2">
+                        <button class="btn btn-primary" (click)="showMsg('Angular')" type="button">Angular</button>
+                    </div>
+
+                    <div class="col-2">
+                        <button class="btn btn-primary" (click)="showMsg('React')" type="button">React</button>
+                    </div>
+
+                    <div class="col-3">
+                        <select (change)="onStateChange()">
+                            <option>MH</option>
+                            <option>PN</option>
+                            <option>Goa</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 bg-danger">
+        <h3>Two way</h3>
+        <div class="row bg-warning">
+            <div class="col-3">
+                <input type="text" [(ngModel)]="courseName">
+            </div>
+            <div>
+                <input type="checkbox" [(ngModel)]="isActive">
+                <p>{{isActive}}</p>
+            </div>
+        </div>
+    </div>
+</div>
