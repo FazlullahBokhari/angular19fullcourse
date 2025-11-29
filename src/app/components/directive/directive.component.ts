@@ -1,10 +1,11 @@
-import { NgIf } from '@angular/common';
+import { NgIf, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+
 @Component({
   selector: 'app-directive',
-  imports: [NgIf, FormsModule],
+  imports: [NgIf, FormsModule, NgFor],
   templateUrl: './directive.component.html',
   styleUrl: './directive.component.css'
 })
@@ -16,6 +17,18 @@ export class DirectiveComponent {
   num2: number = 20;
 
   isDiv3Visible: boolean = false;
+
+  selectedCast: string = 'General';
+
+  cityList: string[] = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'];
+  studentList: any[] = [
+    {name: 'Alice', isActive: true, city: 'New York'},
+    {name: 'Bob', isActive:false, city: 'Los Angeles'},
+    {name: 'Charlie', isActive:true, city: 'Chicago'},
+    {name: 'David', isActive:false, city: 'Houston'},
+    {name: 'Eve', isActive:true, city: 'Phoenix'}
+  ]
+
 
   showDiv1() { 
     this.isDiv1Visible = true;

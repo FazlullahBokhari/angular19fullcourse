@@ -17,13 +17,17 @@
   <div class="col-3">
     <div class="row">
       <div class="col-6">
-        <select>
-          <option></option>
-          <option></option>
-          <option></option>
-          <option></option>
-          <option></option>
+        <label for="">Select Cast</label>
+        <select class="form-control" [(ngModel)]="selectedCast">
+          <option>OBC</option>
+          <option>SC-ST</option>
+          <option>General</option>
+          <option>Other</option>
         </select>
+      </div>
+      <div class="col-6" *ngIf="selectedCast == 'Other'">
+        <label for="">Other Cast</label>
+        <input type="text" placeholder="Enter Other Cast">
       </div>
     </div>
   </div>
@@ -43,4 +47,36 @@
   <div class="col-3 text-center">
     <input type="text" placeholder="num1" [(ngModel)]="num1" (input)="hideShowDiv3()">
     <input type="text" placeholder="num2" [(ngModel)]="num2" (input)="hideShowDiv3()">
+</div>
+
+<div class="row">
+  <div class="col-3">
+    <ul>
+      <li *ngFor="let city of cityList">{{city}}</li>
+    </ul>
+  </div>
+  <div class="col-3">
+    <select name="" id="">
+      <option>Select City</option>
+      <option *ngFor="let city of cityList">{{city}}</option>
+    </select>
+  </div>
+  <div class="col-5">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>S.No.</th>
+          <th>Name</th>
+          <th>Status</th>
+          <th>City</th>
+        </tr>
+        <tr *ngFor="let student of studentList; let sr=index">
+          <td>{{sr+1}}</td>
+          <td>{{student.name}}</td>
+          <td>{{student.isActive ? 'Active' : 'Inactive'}}</td>
+          <td>{{student.city}}</td>
+        </tr>
+      </thead>
+    </table>
+  </div>
 </div>
